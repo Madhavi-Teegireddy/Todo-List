@@ -1,9 +1,15 @@
-import React from 'react'
+import * as types from "./actionType";
 
-const todoReducer = () => {
-  return (
-    <div>Todos</div>
-  )
+
+
+const todoReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.ADD_NEW_TODO:
+        return [action.payload, ...state]
+
+    default:
+        return state
+  }
 }
 
 export default todoReducer;
